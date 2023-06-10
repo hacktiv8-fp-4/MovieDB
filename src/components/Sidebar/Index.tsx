@@ -3,24 +3,29 @@ import { FiGlobe } from "react-icons/fi";
 import { TbDoorEnter } from "react-icons/tb";
 import { BsFillBookmarkFill, BsFillHouseDoorFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import Search from "../Search";
 
 const Sidebar = () => {
   return (
     <>
-      <button
-        type="button"
-        className="text-slate-200 hover:bg-indigo-400 transition-all m-2 bg-indigo-300 rounded-lg p-1 "
-        data-hs-overlay="#docs-sidebar"
-        aria-controls="docs-sidebar"
-        aria-label="Toggle navigation">
-        <span className="sr-only">Toggle Navigation</span>
-        <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 16 16">
-          <path
-            fillRule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-          />
-        </svg>
-      </button>
+      <div className="flex items-center justify-between m-2">
+        <button
+          type="button"
+          className="text-slate-200 hover:bg-indigo-400 transition-all bg-indigo-300 rounded-lg p-1 "
+          data-hs-overlay="#docs-sidebar"
+          aria-controls="docs-sidebar"
+          aria-label="Toggle navigation">
+          <span className="sr-only">Toggle Navigation</span>
+          <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              fillRule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
+        </button>
+        <Search />
+      </div>
+
       <div
         id="docs-sidebar"
         className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
@@ -46,7 +51,7 @@ const Sidebar = () => {
             <li className="hs-accordion" id="bu-users-accordion">
               <a
                 onClick={(e) => e.preventDefault()}
-                className="hs-accordion-toggle cursor-pointer flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white">
+                className="hs-accordion-toggle cursor-pointer flex items-center gap-x-3.5 py-2 px-2.5  hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white">
                 <FiGlobe />
                 Discover
                 <svg
@@ -125,8 +130,7 @@ const Sidebar = () => {
           </ul>
         </nav>
       </div>
-
-      <main>
+      <main className="pl-0 lg:pl-72 ">
         <Outlet />
       </main>
     </>
