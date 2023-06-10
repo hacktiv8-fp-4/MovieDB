@@ -1,12 +1,28 @@
+import Sidebar from "./components/Sidebar/Index";
+import DiscoverMovies from "./pages/Discover/DiscoverMovies";
+import Discover from "./pages/Discover";
+import Home from "./pages/Home";
 import { useGetAllMovieQuery } from "./redux/slice/slice-movie";
+import { Routes, Route } from "react-router-dom";
+import DiscoverTV from "./pages/Discover/DiscoverTV";
+import Upcoming from "./pages/Upcoming";
+import Watchlist from "./pages/Watchlist";
 
 function App() {
-  const { data } = useGetAllMovieQuery(undefined);
-  console.log("data", data);
+  // const { data } = useGetAllMovieQuery(undefined);
+  // console.log("data", data);
   return (
-    <div>
-      <h3 className="text-green-400">Hello</h3>
-    </div>
+    <Routes>
+      <Route path="/" element={<Sidebar />}>
+        <Route index path="/" element={<Home />} />
+        <Route path="/discover" element={<Discover />}>
+          <Route path="/discover/movies" element={<DiscoverMovies />} />
+          <Route path="/discover/tvshows" element={<DiscoverTV />} />
+        </Route>
+        <Route path="/upcoming" element={<Upcoming />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+      </Route>
+    </Routes>
   );
 }
 
