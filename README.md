@@ -8,6 +8,7 @@ This project's data is provided by:
 ## 👨‍💻 Project Members
 1. Bilal Al Ghiffari
 2. Dimas Bayu Pratama
+3. Mochammad Iqbal Saputra
 
 ## 🛠 Tools
 1. React.js
