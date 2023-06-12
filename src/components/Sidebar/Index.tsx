@@ -8,7 +8,7 @@ import Search from "../Search";
 const Sidebar = () => {
   return (
     <>
-      <div className="flex items-center justify-between m-2">
+      <div className="flex items-center justify-between m-4">
         <button
           type="button"
           className="text-slate-200 hover:bg-indigo-400 transition-all bg-indigo-300 rounded-lg p-1 "
@@ -28,10 +28,10 @@ const Sidebar = () => {
 
       <div
         id="docs-sidebar"
-        className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
+        className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-neutral-800 border-r border-neutral-900 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y  ">
         <div className="px-6">
           <NavLink
-            className="flex-none text-xl font-semibold dark:text-white"
+            className="flex-none text-xl font-semibold text-white"
             to="/"
             aria-label="Brand">
             MovieDB
@@ -41,7 +41,7 @@ const Sidebar = () => {
           <ul className="space-y-1.5">
             <li>
               <NavLink
-                className="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-900 dark:text-white"
+                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm  rounded-md hover:bg-neutral-700  text-white"
                 to="/">
                 <BsFillHouseDoorFill />
                 Home
@@ -51,7 +51,7 @@ const Sidebar = () => {
             <li className="hs-accordion" id="bu-users-accordion">
               <a
                 onClick={(e) => e.preventDefault()}
-                className="hs-accordion-toggle cursor-pointer flex items-center gap-x-3.5 py-2 px-2.5  hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white">
+                className="hs-accordion-toggle cursor-pointer flex items-center gap-x-3.5 py-2 px-2.5  hs-accordion-active:hover:bg-transparent text-sm rounded-md hover:bg-neutral-700 text-white dark:hs-accordion-active:text-white">
                 <FiGlobe />
                 Discover
                 <svg
@@ -88,7 +88,7 @@ const Sidebar = () => {
                 <ul className="hs-accordion-group pl-3 pt-2">
                   <li className="hs-accordion" id="bu-users-accordion-sub-1">
                     <NavLink
-                      className="hs-accordion-toggle flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
+                      className="hs-accordion-toggle flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-md hover:bg-neutral-700 "
                       to="/discover/movies">
                       Movies
                     </NavLink>
@@ -99,7 +99,7 @@ const Sidebar = () => {
                   </li>
                   <li className="hs-accordion" id="bu-users-accordion-sub-2">
                     <NavLink
-                      className="hs-accordion-toggle flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white"
+                      className="hs-accordion-toggle flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-md hover:bg-neutral-700"
                       to="/discover/tvshows">
                       TV Shows
                     </NavLink>
@@ -113,7 +113,7 @@ const Sidebar = () => {
             </li>
             <li>
               <NavLink
-                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300"
+                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-md hover:bg-neutral-700"
                 to="/upcoming">
                 <TbDoorEnter />
                 Upcoming
@@ -121,7 +121,7 @@ const Sidebar = () => {
             </li>
             <li>
               <NavLink
-                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300"
+                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-md hover:bg-neutral-700"
                 to="/watchlist">
                 <BsFillBookmarkFill />
                 Watchlist
@@ -130,7 +130,7 @@ const Sidebar = () => {
           </ul>
         </nav>
       </div>
-      <main className="pl-0 lg:pl-72 ">
+      <main className="container text-white pl-0 lg:pl-72 ">
         <Outlet />
       </main>
     </>

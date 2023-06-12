@@ -12,7 +12,7 @@ const Search = () => {
           type="text"
           id="hs-trailing-button-add-on-with-icon-and-button"
           name="hs-trailing-button-add-on-with-icon-and-button"
-          className="py-3 px-4 pl-11 block w-full bg-gray-100 border-gray-200 outline-none  rounded-l-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+          className="py-3 px-4 pl-11 block w-full bg-neutral-800 border-gray-200 outline-none rounded-l-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
         />
         <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
           <svg
