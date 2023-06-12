@@ -5,13 +5,13 @@ import { BsFillBookmarkFill, BsFillHouseDoorFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import Search from "../Search";
 
-const Sidebar = () => {
+const Header = () => {
   return (
     <>
-      <div className="flex items-center justify-between m-4">
+      <div className="flex items-center justify-between gap-10 m-4">
         <button
           type="button"
-          className="text-slate-200 hover:bg-indigo-400 transition-all bg-indigo-300 rounded-lg p-1 "
+          className="text-slate-200 bg-indigo-500 hover:bg-indigo-600 transition-all  rounded-lg p-1 "
           data-hs-overlay="#docs-sidebar"
           aria-controls="docs-sidebar"
           aria-label="Toggle navigation">
@@ -25,10 +25,9 @@ const Sidebar = () => {
         </button>
         <Search />
       </div>
-
       <div
         id="docs-sidebar"
-        className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-neutral-800 border-r border-neutral-900 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y  ">
+        className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-neutral-800 border-r border-neutral-900 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y">
         <div className="px-6">
           <NavLink
             className="flex-none text-xl font-semibold text-white"
@@ -130,11 +129,11 @@ const Sidebar = () => {
           </ul>
         </nav>
       </div>
-      <main className="container text-white pl-0 lg:pl-72 ">
+      <main className="mx-5 py-5 text-white pl-0 lg:pl-72 ">
         <Outlet />
       </main>
     </>
   );
 };
 
-export default Sidebar;
+export default Header;
