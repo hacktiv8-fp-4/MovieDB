@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { movieApi } from "../slice/slice-movie";
+import reducersSearch from "../slice/slice-search";
 
 const rootReducers = combineReducers({
+  search: reducersSearch,
   [movieApi.reducerPath]: movieApi.reducer,
 });
 

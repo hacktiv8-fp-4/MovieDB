@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ArgumentMovieTypes } from "../../service";
+import { ArgumentMovieTypes } from "../../service/data-types";
 
 export const movieApi = createApi({
   reducerPath: "movie",
@@ -14,13 +14,25 @@ export const movieApi = createApi({
   }),
   endpoints: (builder) => ({
     getAllMovie: builder.query<ArgumentMovieTypes, number>({
-      query: (page: 1) => `/discover/movie?page=${page}`,
+      query: (page: 1) => `/movie/popular?page=${page}`,
     }),
     getAllMovieRated: builder.query<ArgumentMovieTypes, number>({
       query: (page: 1) => `/movie/top_rated?page=${page}`,
     }),
     getAllMovieUpcoming: builder.query<ArgumentMovieTypes, number>({
       query: (page: 1) => `/movie/upcoming?page=${page}`,
+    }),
+    getAllSearchMovie: builder.query({
+      query: (queryParam) => {
+        const { query, page } = queryParam;
+        return {
+          url: "/search/movie",
+          params: {
+            query,
+            page,
+          },
+        };
+      },
     }),
   }),
 });
@@ -29,4 +41,5 @@ export const {
   useGetAllMovieQuery,
   useGetAllMovieRatedQuery,
   useGetAllMovieUpcomingQuery,
+  useGetAllSearchMovieQuery,
 } = movieApi;
