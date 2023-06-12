@@ -8,7 +8,7 @@ export const movieApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "Authorization",
-        "Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMGZiNDU0NGM2ZGQ1NGM4MTg2M2JjNzNmMmQxZDZlMiIsInN1YiI6IjY0ODJlODNlZTI3MjYwMDBlOGJmZTBkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADhJHV1a3TU6RqYDK_fZxEeEIesjDanBBlRxTvvLYJU"
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMGZiNDU0NGM2ZGQ1NGM4MTg2M2JjNzNmMmQxZDZlMiIsInN1YiI6IjY0ODJlODNlZTI3MjYwMDBlOGJmZTBkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADhJHV1a3TU6RqYDK_fZxEeEIesjDanBBlRxTvvLYJU"
       );
     },
   }),
@@ -19,7 +19,14 @@ export const movieApi = createApi({
     getAllMovieRated: builder.query<ArgumentMovieTypes, number>({
       query: (page: 1) => `/movie/top_rated?page=${page}`,
     }),
+    getAllMovieUpcoming: builder.query<ArgumentMovieTypes, number>({
+      query: (page: 1) => `/movie/upcoming?page=${page}`,
+    }),
   }),
 });
 
-export const { useGetAllMovieQuery, useGetAllMovieRatedQuery } = movieApi;
+export const {
+  useGetAllMovieQuery,
+  useGetAllMovieRatedQuery,
+  useGetAllMovieUpcomingQuery,
+} = movieApi;

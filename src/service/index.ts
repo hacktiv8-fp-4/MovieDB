@@ -21,12 +21,13 @@ export interface ArgumentMovieTypes {
 export interface CardMovieTypes {
   name: string;
   release: string;
-  icon: string;
   image: string;
+  id: number;
 }
 export interface CardMovieRatedTypes {
   name: string;
   release: string;
   image: string;
   rated: number;
+  id: number;
 }
