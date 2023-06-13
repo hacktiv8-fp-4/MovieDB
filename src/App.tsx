@@ -8,6 +8,7 @@ import DiscoverTV from "./pages/Discover/DiscoverTV";
 import Upcoming from "./pages/Upcoming";
 import Watchlist from "./pages/Watchlist";
 import Details from "./pages/Details";
+import Searchs from "./pages/Searchs";
 
 function App() {
   // const { data } = useGetAllMovieQuery(undefined);
@@ -23,6 +24,7 @@ function App() {
         <Route path="upcoming" element={<Upcoming />} />
         <Route path="watchlist" element={<Watchlist />} />
         <Route path="details/:id" element={<Details />} />
+        <Route path="search/:keyword" element={<Searchs />} />
       </Route>
     </Routes>
   );

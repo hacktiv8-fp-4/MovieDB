@@ -3,7 +3,7 @@ import { FiGlobe } from "react-icons/fi";
 import { TbDoorEnter } from "react-icons/tb";
 import { BsFillBookmarkFill, BsFillHouseDoorFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
-import Search from "../Search";
+import Search from "../InputSearch";
 
 const Sidebar = () => {
   return (
