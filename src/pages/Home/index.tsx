@@ -4,12 +4,14 @@ import CardFlickity from "../../components/Cards/CardFlickity";
 import {
   useGetAllMovieQuery,
   useGetAllMovieRatedQuery,
+  useGetAllMovieNowPlayingQuery,
 } from "../../redux/slice/slice-movie";
 import { ListMovieTypes } from "../../service/data-types";
 
 const Home = () => {
   const { data: movie } = useGetAllMovieQuery(1);
   const { data: movieRated } = useGetAllMovieRatedQuery(1);
+  const { data: movieNowPlaying } = useGetAllMovieNowPlayingQuery(1);
   const flickityOptions = {
     cellAlign: "left",
     contain: true,
@@ -21,14 +23,14 @@ const Home = () => {
   };
   return (
     <>
-      <div className="mt-[50px]">
+      <div>
         <div className="flex flex-row justify-between">
           <div className="font-semibold text-[22px] text-white mb-4">
             Rated Movies
           </div>
           <div className="font-semibold text-lg text-white mb-4">See all</div>
         </div>
-        <div className="grid grid-rows-1 grid-cols-4 gap-5">
+        <div className="grid lg:grid-cols-4 grid-cols-2 gap-5">
           {movieRated?.results.slice(0, 4).map((item: ListMovieTypes) => (
             <BaseCard
               key={item.id}
@@ -47,6 +49,22 @@ const Home = () => {
         </div>
         <Flickity options={flickityOptions} className="focus:outline-none">
           {movie?.results.slice(0, 8).map((item: ListMovieTypes) => (
+            <CardFlickity
+              key={item.id}
+              image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              name={item.title}
+              release={item.release_date}
+              id={item.id}
+            />
+          ))}
+        </Flickity>
+      </div>
+      <div className="mt-[50px] overflow-hidden">
+        <div className="font-semibold text-[22px] text-white mb-4">
+          Now Playing in Cinemas
+        </div>
+        <Flickity options={flickityOptions} className="focus:outline-none">
+          {movieNowPlaying?.results.slice(0, 10).map((item: ListMovieTypes) => (
             <CardFlickity
               key={item.id}
               image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}

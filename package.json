@@ -19,7 +19,8 @@
     "react-flickity-component": "^4.0.6",
     "react-icons": "^4.9.0",
     "react-redux": "^8.0.7",
-    "react-router-dom": "^6.12.1"
+    "react-router-dom": "^6.12.1",
+    "react-youtube": "^10.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
