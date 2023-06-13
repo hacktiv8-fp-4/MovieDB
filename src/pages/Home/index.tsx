@@ -30,10 +30,10 @@ const Home = () => {
     <>
       <div className="mt-[50px]">
         <div className="flex flex-row justify-between">
-          <div className="font-semibold text-[22px] text-black mb-4">
+          <div className="font-semibold text-[22px] text-white mb-4">
             Rated Movies
           </div>
-          <div className="font-semibold text-lg text-black mb-4">See all</div>
+          <div className="font-semibold text-lg text-white mb-4">See all</div>
         </div>
         <div className="grid grid-rows-1 grid-cols-4 gap-5">
           {search.length === 0
@@ -63,8 +63,8 @@ const Home = () => {
                 ))}
         </div>
       </div>
-      <div className="mt-[50px]">
-        <div className="font-semibold text-[22px] text-black mb-4">
+      <div className="mt-[50px] overflow-hidden">
+        <div className="font-semibold text-[22px] text-white mb-4">
           Popular Movies
         </div>
         <Flickity options={flickityOptions} className="focus:outline-none">
