@@ -1,4 +1,4 @@
-import { CardMovieTypes } from "../../../service";
+import { CardMovieTypes } from "../../../service/data-types";
 import { formatDate } from "../../../service/formatDate";
 import { NavLink } from "react-router-dom";
 
@@ -20,7 +20,7 @@ export default function CardFlickity({
           <div className="font-medium text-xl text-white line-clamp-2">
             {name}
           </div>
-          <p className="mb-0 text-gray-500 text-base mt-[10px]">
+          <p className="mb-0 text-white text-base mt-[10px]">
             {formatDate.getYear(release)}
           </p>
         </div>

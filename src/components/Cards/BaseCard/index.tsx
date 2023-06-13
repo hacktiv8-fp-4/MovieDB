@@ -1,5 +1,5 @@
 import { AiFillStar } from "react-icons/ai";
-import { CardMovieRatedTypes } from "../../../service";
+import { CardMovieRatedTypes } from "../../../service/data-types";
 import { formatDate } from "../../../service/formatDate";
 
 export default function BaseCard({

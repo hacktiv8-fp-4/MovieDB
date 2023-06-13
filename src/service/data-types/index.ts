@@ -27,12 +27,58 @@ export interface ArgumentStatetMovieTypes {
 export interface CardMovieTypes {
   name: string;
   release: string;
-  icon: string;
   image: string;
+  id: number;
 }
+
 export interface CardMovieRatedTypes {
   name: string;
   release: string;
   image: string;
   rated: number;
+  id: number;
+}
+
+export interface getGenre {
+  id?: string;
+  name: string;
+}
+
+export interface MovieDetails {
+  id: number;
+  original_title: string;
+  title: string;
+  overview: string;
+  release_date: string;
+  videos: MovieVideo;
+  genres: getGenre[];
+  credits: getCast;
+  reviews: MovieReviews;
+}
+
+export interface MovieVideo {
+  results: VideoResult[];
+}
+
+export interface VideoResult {
+  name: string;
+  key: string;
+  type: string;
+}
+
+export interface getCast {
+  cast: castDetails[];
+}
+
+export interface castDetails {
+  name: string;
+}
+
+export interface MovieReviews {
+  results: ReviewsResult[];
+}
+
+export interface ReviewsResult {
+  author: string;
+  content: string;
 }
