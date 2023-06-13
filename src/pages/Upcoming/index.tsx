@@ -1,6 +1,6 @@
 import BaseCard from "../../components/Cards/BaseCard";
 import { useGetAllMovieUpcomingQuery } from "../../redux/slice/slice-movie";
-import { ListMovieTypes } from "../../service";
+import { ListMovieTypes } from "../../service/data-types";
 import { Link } from "react-router-dom";
 
 const Upcoming = () => {
