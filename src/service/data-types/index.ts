@@ -39,8 +39,12 @@ export interface CardMovieRatedTypes {
   id: number;
 }
 
+export interface GetAllGenres {
+  genres: getGenre[];
+}
+
 export interface getGenre {
-  id?: string;
+  id: string;
   name: string;
 }
 
@@ -53,7 +57,8 @@ export interface MovieDetails {
   videos: MovieVideo;
   genres: getGenre[];
   credits: getCast;
-  reviews: MovieReviews;
+  reviews?: MovieReviews;
+  poster_path: string;
 }
 
 export interface MovieVideo {
@@ -75,7 +80,7 @@ export interface castDetails {
 }
 
 export interface MovieReviews {
-  results: ReviewsResult[];
+  results?: ReviewsResult[];
 }
 
 export interface ReviewsResult {
