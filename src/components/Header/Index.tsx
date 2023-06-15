@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import { FiGlobe } from "react-icons/fi";
+import { BsCompassFill } from "react-icons/bs";
 import { TbDoorEnter } from "react-icons/tb";
-import { BsFillBookmarkFill, BsFillHouseDoorFill } from "react-icons/bs";
+import { BsFillHouseDoorFill } from "react-icons/bs";
+import { AiFillStar } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import Search from "../InputSearch";
 
@@ -51,77 +52,32 @@ const Header = () => {
               </NavLink>
             </li>
 
-            <li className="hs-accordion" id="bu-users-accordion">
-              <a
-                onClick={(e) => e.preventDefault()}
-                className="hs-accordion-toggle cursor-pointer flex items-center gap-x-3.5 py-2 px-2.5  hs-accordion-active:hover:bg-transparent text-sm rounded-md hover:bg-indigo-500 text-white dark:hs-accordion-active:text-white">
-                <FiGlobe />
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `flex items-center gap-x-3.5 py-2 px-2.5 text-sm ${
+                    isActive ? "bg-indigo-500" : ""
+                  } rounded-md hover:bg-indigo-500 text-white`
+                }
+                to="/discover">
+                <BsCompassFill />
                 Discover
-                <svg
-                  className="hs-accordion-active:block ml-auto hidden w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M2 11L8.16086 5.31305C8.35239 5.13625 8.64761 5.13625 8.83914 5.31305L15 11"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"></path>
-                </svg>
-                <svg
-                  className="hs-accordion-active:hidden ml-auto block w-3 h-3 text-gray-600 group-hover:text-gray-500 dark:text-gray-400"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"></path>
-                </svg>
-              </a>
-
-              <div
-                id="bu-users-accordion"
-                className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
-                <ul className="hs-accordion-group flex flex-col gap-2 pl-3 pt-2">
-                  <li className="hs-accordion" id="bu-users-accordion-sub-1">
-                    <NavLink
-                      className={({ isActive }) =>
-                        `flex items-center gap-x-3.5 py-2 px-2.5 text-sm ${
-                          isActive ? "bg-indigo-500" : "bg-none"
-                        } rounded-md hover:bg-indigo-500 text-white`
-                      }
-                      to="/discover/movies">
-                      Movies
-                    </NavLink>
-
-                    <div
-                      id="bu-users-accordion-sub-1"
-                      className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"></div>
-                  </li>
-                  <li className="hs-accordion" id="bu-users-accordion-sub-2">
-                    <NavLink
-                      className={({ isActive }) =>
-                        `flex items-center gap-x-3.5 py-2 px-2.5 text-sm ${
-                          isActive ? "bg-indigo-500" : "bg-none"
-                        } rounded-md hover:bg-indigo-500 text-white`
-                      }
-                      to="/discover/tvshows">
-                      TV Shows
-                    </NavLink>
-
-                    <div
-                      id="bu-users-accordion-sub-2"
-                      className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden pl-2"></div>
-                  </li>
-                </ul>
-              </div>
+              </NavLink>
             </li>
+
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `flex items-center gap-x-3.5 py-2 px-2.5 text-sm ${
+                    isActive ? "bg-indigo-500" : "bg-none"
+                  } rounded-md hover:bg-indigo-500 text-white`
+                }
+                to="/top_rated">
+                <AiFillStar />
+                Top Rated
+              </NavLink>
+            </li>
+
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -132,18 +88,6 @@ const Header = () => {
                 to="/upcoming">
                 <TbDoorEnter />
                 Upcoming
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `flex items-center gap-x-3.5 py-2 px-2.5 text-sm ${
-                    isActive ? "bg-indigo-500" : "bg-none"
-                  } rounded-md hover:bg-indigo-500 text-white`
-                }
-                to="/watchlist">
-                <BsFillBookmarkFill />
-                Watchlist
               </NavLink>
             </li>
           </ul>

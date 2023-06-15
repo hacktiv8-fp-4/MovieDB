@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ArgumentMovieTypes, MovieDetails } from "../../service/data-types";
+import {
+  ArgumentMovieTypes,
+  MovieDetails,
+  GetAllGenres,
+} from "../../service/data-types";
 
 export const movieApi = createApi({
   reducerPath: "movie",
@@ -26,9 +30,19 @@ export const movieApi = createApi({
       query: (page: 1) =>
         `/movie/now_playing?language=id-ID&page=${page}&region=ID`,
     }),
+    getAllMovieTrending: builder.query<ArgumentMovieTypes, string>({
+      query: (time_window) => `/trending/movie/${time_window}`,
+    }),
     getMovieDetails: builder.query<MovieDetails, number>({
       query: (id) =>
         `/movie/${id}?append_to_response=videos%2Ccredits%2Creviews&language=en-US`,
+    }),
+    getAllGenres: builder.query<GetAllGenres, string>({
+      query: (type) => `/genre/${type}/list`,
+    }),
+    getMovieFilter: builder.query<ArgumentMovieTypes, string>({
+      query: (genreId) =>
+        `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`,
     }),
     getAllSearchMovie: builder.query({
       query: (queryParam) => {
@@ -51,5 +65,8 @@ export const {
   useGetAllMovieUpcomingQuery,
   useGetAllSearchMovieQuery,
   useGetAllMovieNowPlayingQuery,
+  useGetAllMovieTrendingQuery,
   useGetMovieDetailsQuery,
+  useGetAllGenresQuery,
+  useGetMovieFilterQuery,
 } = movieApi;

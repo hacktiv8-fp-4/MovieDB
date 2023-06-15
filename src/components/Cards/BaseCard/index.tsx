@@ -14,7 +14,7 @@ export default function BaseCard({
       <img
         src={image}
         className="object-cover rounded-[30px] w-full h-[250px]"
-        alt=""
+        alt="image"
       />
       <div className="absolute top-5 left-5 bg-indigo-500 rounded-full">
         <div className="flex flex-row items-center py-1 px-[10px]">
