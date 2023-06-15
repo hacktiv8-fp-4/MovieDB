@@ -44,7 +44,7 @@ export interface GetAllGenres {
 }
 
 export interface getGenre {
-  id: string;
+  id?: string;
   name: string;
 }
 
