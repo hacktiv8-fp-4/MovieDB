@@ -24,7 +24,7 @@ export default function BaseCard({
           <span className="text-white text-sm ml-1">{rated}</span>
         </div>
       </div>
-      <div className="absolute bottom-0 w-full   p-5 rounded-b-[28px] bg-gradient-to-t from-slate-900">
+      <div className="absolute bottom-0 w-full p-5 rounded-b-[28px] bg-gradient-to-t from-slate-900">
         <div className="">
           <h3 className="text-white text-lg line-clamp-2">{name}</h3>
           <p className="text-white text-sm ml-1">

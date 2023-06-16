@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import BaseCard from "../../components/Cards/BaseCard";
 import { useGetAllSearchMovieQuery } from "../../redux/slice/slice-movie";
 import { ListMovieTypes } from "../../service/data-types";
-import NoImage from "../../../public/image/No-Image-Placeholder.png";
+import NoImage from "../../assets/No-Image-Placeholder.png";
 import Skeleton from "../../components/Skeleton";
 
 export default function Searchs() {
