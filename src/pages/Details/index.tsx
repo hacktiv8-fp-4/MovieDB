@@ -9,6 +9,14 @@ import {
 } from "../../service/data-types";
 import Genres from "../../components/Genres";
 import Reviews from "../../components/ReviewsPlaceholder";
+import { IoBookmarkOutline, IoBookmarkSharp } from "react-icons/io5";
+import { IconContext } from "react-icons";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToWatchlist,
+  removeFromWatchlist,
+} from "../../redux/slice/slice-watchlist";
+import { WatchListRootState } from "../../redux/store";
 
 const Details = () => {
   const { id } = useParams();
@@ -25,6 +33,24 @@ const Details = () => {
     .map((item: castDetails) => item.name);
 
   const date = new Date(String(movieDetails?.release_date));
+
+  const { movies } = useSelector(
+    (state: WatchListRootState) => state.watchlist
+  );
+
+  const dispatch = useDispatch();
+
+  const isMovieInWatchlist = movies.some(
+    (item) => item.id === movieDetails?.id
+  );
+
+  const handleAddToWatchlist = (movieDetails: any) => {
+    dispatch(addToWatchlist(movieDetails));
+  };
+
+  const handleRemoveFromWatchlist = (movieDetails: any) => {
+    dispatch(removeFromWatchlist(movieDetails));
+  };
 
   return (
     <>
@@ -58,6 +84,29 @@ const Details = () => {
               <p className="text-gray-300">
                 Release date: {date.toDateString()}
               </p>
+              <div>
+                {isMovieInWatchlist ? (
+                  <button
+                    onClick={() => handleRemoveFromWatchlist(movieDetails)}
+                    className="flex gap-2">
+                    <IconContext.Provider
+                      value={{ color: "white", size: "1.3em" }}>
+                      <IoBookmarkSharp />
+                    </IconContext.Provider>
+                    Remove from Watchlist
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleAddToWatchlist(movieDetails)}
+                    className="flex gap-2">
+                    <IconContext.Provider
+                      value={{ color: "white", size: "1.3em" }}>
+                      <IoBookmarkOutline />
+                    </IconContext.Provider>
+                    Add to Watchlist
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>

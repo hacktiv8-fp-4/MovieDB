@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { BsCompassFill } from "react-icons/bs";
 import { TbDoorEnter } from "react-icons/tb";
-import { BsFillHouseDoorFill } from "react-icons/bs";
+import { BsFillHouseDoorFill, BsFillBookmarkFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import Search from "../InputSearch";
@@ -88,6 +88,19 @@ const Header = () => {
                 to="/upcoming">
                 <TbDoorEnter />
                 Upcoming
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `flex items-center gap-x-3.5 py-2 px-2.5 text-sm ${
+                    isActive ? "bg-indigo-500" : "bg-none"
+                  } rounded-md hover:bg-indigo-500 text-white`
+                }
+                to="/watchlist">
+                <BsFillBookmarkFill />
+                Watchlist
               </NavLink>
             </li>
           </ul>

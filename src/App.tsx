@@ -7,6 +7,7 @@ import Upcoming from "./pages/Upcoming";
 import TopRated from "./pages/Top Rated";
 import Details from "./pages/Details";
 import Searchs from "./pages/Searchs";
+import Watchlist from "./pages/Watchlist";
 
 function App() {
   // const { data } = useGetAllMovieQuery(undefined);
@@ -20,6 +21,7 @@ function App() {
         <Route path="top_rated" element={<TopRated />} />
         <Route path="details/:id" element={<Details />} />
         <Route path="search/:keyword" element={<Searchs />} />
+        <Route path="watchlist" element={<Watchlist />} />
       </Route>
     </Routes>
   );
