@@ -48,7 +48,7 @@ const Home = () => {
                 key={index}
                 className="hover:scale-105 z-50 ease-in duration-200">
                 <BaseCard
-                  image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                  image={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
                   name={item.title}
                   release={item.release_date}
                   rated={item.vote_average}
@@ -66,7 +66,7 @@ const Home = () => {
           {movie?.results.map((item: ListMovieTypes) => (
             <CardFlickity
               key={item.id}
-              image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              image={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
               name={item.title}
               release={item.release_date}
               id={item.id}
@@ -82,7 +82,7 @@ const Home = () => {
           {movieNowPlaying?.results.map((item: ListMovieTypes) => (
             <CardFlickity
               key={item.id}
-              image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              image={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
               name={item.title}
               release={item.release_date}
               id={item.id}
@@ -98,7 +98,7 @@ const Home = () => {
           {movieTrending?.results.map((item: ListMovieTypes) => (
             <CardFlickity
               key={item.id}
-              image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              image={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
               name={item.title}
               release={item.release_date}
               id={item.id}
