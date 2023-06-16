@@ -1003,5 +1003,5 @@ export default {
       50: "50",
     },
   },
-  plugins: [require("preline/plugin")],
+  plugins: [require("./src/preline/plugin")],
 };
