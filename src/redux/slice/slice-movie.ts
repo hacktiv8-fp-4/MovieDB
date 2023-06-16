@@ -34,15 +34,35 @@ export const movieApi = createApi({
       query: (time_window) => `/trending/movie/${time_window}`,
     }),
     getMovieDetails: builder.query<MovieDetails, number>({
-      query: (id) =>
-        `/movie/${id}?append_to_response=videos%2Ccredits%2Creviews&language=en-US`,
+      query: (queryParams) => {
+        return {
+          url: `/movie/${queryParams}`,
+          params: {
+            append_to_response: "videos,Ccredits,reviews",
+            language: "en-US",
+          },
+        };
+      },
     }),
     getAllGenres: builder.query<GetAllGenres, string>({
       query: (type) => `/genre/${type}/list`,
     }),
-    getMovieFilter: builder.query<ArgumentMovieTypes, string>({
-      query: (genreId) =>
-        `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`,
+    getMovieFilter: builder.query({
+      query: (queryParams) => {
+        const { genre, page } = queryParams;
+        return {
+          url: "/discover/movie",
+          params: {
+            include_adult: false,
+            include_video: false,
+            language: "en-US",
+            page,
+            sort_by: "popularity.desc",
+            with_genres: genre,
+          },
+        };
+      },
+      // `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${queryGenre}`,
     }),
     getAllSearchMovie: builder.query({
       query: (queryParam) => {

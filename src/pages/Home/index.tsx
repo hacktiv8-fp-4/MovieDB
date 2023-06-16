@@ -35,7 +35,8 @@ const Home = () => {
           </h1>
           <Link
             to="top_rated"
-            className="font-semibold text-lg text-white mb-4 underline">
+            className="font-semibold text-lg text-white mb-4 underline"
+          >
             See all
           </Link>
         </div>
@@ -46,7 +47,8 @@ const Home = () => {
               <Link
                 to={`../details/${item.id}`}
                 key={index}
-                className="hover:scale-105 z-50 ease-in duration-200">
+                className="hover:scale-105 z-50 ease-in duration-200"
+              >
                 <BaseCard
                   image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                   name={item.title}

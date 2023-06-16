@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { movieApi } from "../slice/slice-movie";
 import reducersSearch from "../slice/slice-search";
+import reducersFilterGenre from "../slice/slice-filterGenre";
 
 const rootReducers = combineReducers({
   search: reducersSearch,
+  filterGenre: reducersFilterGenre,
   [movieApi.reducerPath]: movieApi.reducer,
 });
 

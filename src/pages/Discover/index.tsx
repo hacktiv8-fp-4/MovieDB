@@ -1,61 +1,60 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import BaseCard from "../../components/Cards/BaseCard";
+import Genres from "../../components/Genres";
+import Skeleton from "../../components/Skeleton";
+import {
+  getDataGenre,
+  setClearFilter,
+  setFilterGenre,
+} from "../../redux/slice/slice-filterGenre";
 import {
   useGetAllGenresQuery,
   useGetMovieFilterQuery,
 } from "../../redux/slice/slice-movie";
-import Genres from "../../components/Genres";
-import { ListMovieTypes, getGenre } from "../../service/data-types";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import BaseCard from "../../components/Cards/BaseCard";
-import Skeleton from "../../components/Skeleton";
-
-interface Genre {
-  id: string;
-}
+import {
+  ListMovieTypes,
+  genreIdType,
+  getGenre,
+  listFilterType,
+  stateFilterGenre,
+} from "../../service/data-types";
 
 const DiscoverMovies = () => {
+  const dispatch = useDispatch();
+  const { listFilter, genreId } = useSelector((state) => state.filterGenre);
   const { data: movieGenres } = useGetAllGenresQuery("movie");
   const genre = movieGenres?.genres;
-  const [genreId, setGenreId] = useState<Genre[]>([]);
-  const [listFilter, setListFilter] = useState<string[]>([]);
-  const filterJoined = genreId.map((item) => item.id).join(",");
-  const { data: filterMovie, isFetching } =
-    useGetMovieFilterQuery(filterJoined);
+  const filterJoined = genreId.map((item: genreIdType) => item.id).join(",");
+  const { data: filterMovie, isFetching } = useGetMovieFilterQuery({
+    genre: filterJoined,
+    page: 1,
+  });
+  // console.log("genreId", genreId);
+  useEffect(() => {
+    dispatch(getDataGenre(genre));
+  }, [dispatch, genre]);
 
   const handleGenreClick = (clickedGenreId: string, genreName: string) => {
-    const isGenreSelected = genreId.some((item) => item.id === clickedGenreId);
-    if (isGenreSelected) {
-      const updatedGenreId = genreId.filter(
-        (item) => item.id !== clickedGenreId
-      );
-      const updatedFilter = listFilter.filter((item) => item !== genreName);
-      setGenreId(updatedGenreId);
-      setListFilter(updatedFilter);
-    } else {
-      const newItem: Genre = {
-        id: clickedGenreId,
-      };
-      setGenreId([...genreId, newItem]);
-      setListFilter([...listFilter, genreName]);
-    }
+    dispatch(setFilterGenre({ genreName, clickedGenreId }));
   };
 
   const resetFilter = () => {
-    setListFilter([]);
-    setGenreId([]);
+    dispatch(setClearFilter());
   };
-
   return (
     <>
       <h1 className="font-semibold text-[22px] text-white mb-4">Discover</h1>
       <div className="flex gap-5 flex-wrap mb-10">
         <div className="flex flex-wrap items-center gap-2">
-          <h1>Filter by genre: {listFilter.sort().join(", ")}</h1>
+          <h1>Filter by genre: {listFilter.slice().sort().join(", ")}</h1>
           {listFilter.length > 0 && (
             <button
               onClick={resetFilter}
               type="button"
-              className="py-2 px-2 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-red-500 text-white hover:bg-red-600 transition-all text-md ">
+              className="py-2 px-2 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-red-500 text-white hover:bg-red-600 transition-all text-md "
+            >
               Reset filter
             </button>
           )}
@@ -65,7 +64,8 @@ const DiscoverMovies = () => {
           {genre?.map((item: getGenre) => (
             <div
               onClick={() => handleGenreClick(String(item.id), item.name)}
-              key={item.id}>
+              key={item.id}
+            >
               <Genres id={item.id} name={item.name} />
             </div>
           ))}
@@ -80,7 +80,8 @@ const DiscoverMovies = () => {
               <Link
                 to={`../details/${item.id}`}
                 key={index}
-                className="hover:scale-110 z-50 ease-in duration-200">
+                className="hover:scale-110 z-50 ease-in duration-200"
+              >
                 <BaseCard
                   id={item.id}
                   image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}

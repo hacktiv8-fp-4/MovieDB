@@ -87,3 +87,15 @@ export interface ReviewsResult {
   author: string;
   content: string;
 }
+export interface genreIdType {
+  id: string;
+}
+export interface listFilterType {
+  id: string;
+  name: string;
+}
+
+export interface stateFilterGenre {
+  genreId: genreIdType[];
+  listFilter: listFilterType[];
+}
