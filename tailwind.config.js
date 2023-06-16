@@ -3,7 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "node_modules/preline/dist/*.js",
+    "./src/preline/dist/*.js",
   ],
   presets: [],
   darkMode: "media", // or 'class'
