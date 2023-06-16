@@ -15,11 +15,14 @@ This project's data is provided by:
   - List of top rated movies
 - Upcoming page
   - List of movies that will coming this year / next year
+- Detail page
+  - Shows movie details and add to or remove from watchlist
+- Watchlist page
+  - List of watchlist movies
 
 ## 👨‍💻 Project Members
 1. Bilal Al Ghiffari
 2. Dimas Bayu Pratama
-3. Mochammad Iqbal Saputra
 
 ## 🛠 Tools
 1. React.js
