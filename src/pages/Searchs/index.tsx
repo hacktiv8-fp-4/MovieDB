@@ -30,7 +30,7 @@ export default function Searchs() {
                   image={
                     item.poster_path === null
                       ? NoImage
-                      : `https://image.tmdb.org/t/p/w500${item.poster_path}`
+                      : `https://image.tmdb.org/t/p/w500${item?.poster_path}`
                   }
                   name={item.title}
                   release={item.release_date}

@@ -35,7 +35,7 @@ const Watchlist = () => {
                 <Link to={`../details/${item.id}`}>
                   <BaseCard
                     id={item.id}
-                    image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                    image={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
                     name={item.title}
                     release={item.release_date}
                     rated={item.vote_average}

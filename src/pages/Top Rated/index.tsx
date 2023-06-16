@@ -20,7 +20,7 @@ const TopRated = () => {
                 key={index}
                 className="hover:scale-110 z-50 ease-in duration-200">
                 <BaseCard
-                  image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                  image={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
                   name={item.title}
                   release={item.release_date}
                   rated={item.vote_average}
