@@ -1,5 +1,5 @@
 import { AiFillStar } from "react-icons/ai";
-import { CardMovieRatedTypes } from "../../../service";
+import { CardMovieRatedTypes } from "../../../service/data-types";
 import { formatDate } from "../../../service/formatDate";
 
 export default function BaseCard({
@@ -14,7 +14,7 @@ export default function BaseCard({
       <img
         src={image}
         className="object-cover rounded-[30px] w-full h-[250px]"
-        alt=""
+        alt="image"
       />
       <div className="absolute top-5 left-5 bg-indigo-500 rounded-full">
         <div className="flex flex-row items-center py-1 px-[10px]">
@@ -24,7 +24,7 @@ export default function BaseCard({
           <span className="text-white text-sm ml-1">{rated}</span>
         </div>
       </div>
-      <div className="absolute bottom-0 w-full   p-5 rounded-b-[28px] bg-gradient-to-t from-slate-900">
+      <div className="absolute bottom-0 w-full p-5 rounded-b-[28px] bg-gradient-to-t from-slate-900">
         <div className="">
           <h3 className="text-white text-lg line-clamp-2">{name}</h3>
           <p className="text-white text-sm ml-1">
